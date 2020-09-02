@@ -1,29 +1,14 @@
-cmake_minimum_required(VERSION 3.2)
+cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
 
 set(Yolo_mark_MAJOR_VERSION 1)
 set(Yolo_mark_MINOR_VERSION 0)
 set(Yolo_mark_PATCH_VERSION 0)
 set(Yolo_mark_VERSION ${Yolo_mark_MAJOR_VERSION}.${Yolo_mark_MINOR_VERSION}.${Yolo_mark_PATCH_VERSION})
 
-set(CMAKE_VERBOSE_MAKEFILE "FALSE" CACHE BOOL "Create verbose makefile")
-
-if(DEFINED ENV{VCPKG_ROOT} AND NOT DEFINED CMAKE_TOOLCHAIN_FILE)
-  set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake" CACHE STRING "")
-  message(STATUS "VCPKG found: $ENV{VCPKG_ROOT}")
-  message(STATUS "Using VCPKG integration")
-endif()
-
 project(Yolo_mark VERSION ${Yolo_mark_VERSION})
-
 enable_language(CXX)
-
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake/Modules/" ${CMAKE_MODULE_PATH})
-
-if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
-  set(CMAKE_INSTALL_PREFIX "${CMAKE_CURRENT_LIST_DIR}" CACHE PATH "Install prefix" FORCE)
-endif()
-set(INSTALL_BIN_DIR      "${CMAKE_CURRENT_LIST_DIR}" CACHE PATH "Path where exe will be installed")
+set(BUILD_SHARED_LIBS FALSE)
+set(CMAKE_CXX_STANDARD 14)
 
 find_package(OpenCV REQUIRED)
 

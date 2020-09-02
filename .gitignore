@@ -29,4 +29,5 @@ yolo_mark
 data/*
 data
 examples/
+build
 
