@@ -30,4 +30,6 @@ data/*
 data
 examples/
 build
-
+opencv
+opencv-build
+opencv3.zip
